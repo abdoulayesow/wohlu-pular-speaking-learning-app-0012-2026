@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 1: Greetings &amp; Respect - Wohlu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Noto+Serif:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "serif": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>.fulani-pattern {
+    background-color: #f8f6f6;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAQvEYJB6s6MUqgPkQ5nU5Qrz5QvmZPPC7mqNUAy9xTyyo7xODMV5FVBD9c-sVvqbSntOXtGYjPmxU6tXqiWzH_G2oKfFHUPyiXN0K7PlsEf_U9CXXHFxnhbXoy9Mzlg8mbi5US6r4erXzuPPjmst7He1O6D_E3fePfWAethKtgn5DrT9fQ_EVmVxgtKGJK9xPU01ZHDTppo8xCPkVWAnPJCvjI0y3kepSJojg40LPQvGzW4zAJKwrGqjqciHqAQO8xHQFYLwqcOdXO);
+    /* Subtle texture overlay to mimic textile feel */
+    opacity: 0.05
+    }
+.dark .fulani-pattern {
+    background-color: #221610;
+    opacity: 0.1
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Header Navigation -->
+<header class="sticky top-0 z-10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-primary/10 px-4 py-4">
+<div class="max-w-md mx-auto flex items-center gap-4">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-serif text-xl font-bold tracking-tight">Greetings &amp; Respect</h1>
+</div>
+</header>
+<main class="flex-1 max-w-md mx-auto w-full pb-24">
+<!-- Hero Section / Module Intro -->
+<section class="p-6 bg-gradient-to-br from-primary/5 to-transparent">
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                Learn the greetings that connect you to your family and show respect to elders.
+            </p>
+<!-- Progress Section -->
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-xl shadow-sm border border-primary/5">
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-semibold uppercase tracking-wider text-primary">Module Progress</span>
+<span class="text-sm font-medium text-slate-500">4 of 6 lessons complete</span>
+</div>
+<div class="w-full bg-primary/10 rounded-full h-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 66%;"></div>
+</div>
+<p class="mt-2 text-xs font-medium text-primary/80">Keep going! You're 66% through this module.</p>
+</div>
+</section>
+<!-- Lesson List -->
+<section class="px-6 py-4 space-y-4">
+<h3 class="font-serif text-lg font-bold mb-4">Lessons</h3>
+<!-- Lesson 1: Completed -->
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-shrink-0 size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 font-bold" style="font-variation-settings: 'FILL' 1">stars</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">Basic Greetings</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">A jaraama! Learn the core Pular greeting exchange.</p>
+</div>
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+</div>
+<!-- Lesson 2: Completed -->
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-shrink-0 size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 font-bold" style="font-variation-settings: 'FILL' 1">stars</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">Morning &amp; Evening Greetings</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Greet differently based on time of day.</p>
+</div>
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+</div>
+<!-- Lesson 3: Completed -->
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-shrink-0 size-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 font-bold" style="font-variation-settings: 'FILL' 1">stars</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-800 dark:text-slate-200">Greeting Elders with Respect</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">The respectful forms that honor your family.</p>
+</div>
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+</div>
+<!-- Lesson 4: Active -->
+<div class="flex items-center gap-4 p-4 bg-primary text-white rounded-xl shadow-lg shadow-primary/20 ring-4 ring-primary/10">
+<div class="flex-shrink-0 size-12 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">play_circle</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold">Saying Goodbye</h4>
+<p class="text-sm text-white/90">En jango! Leave with warmth and grace.</p>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+<!-- Lesson 5: Locked -->
+<div class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-700 opacity-60">
+<div class="flex-shrink-0 size-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">lock</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-500 dark:text-slate-400">Polite Words &amp; Useful Phrases</h4>
+<p class="text-sm text-slate-400 dark:text-slate-500">Thank you, yes, no, and excuse me.</p>
+</div>
+</div>
+<!-- Lesson 6: Locked -->
+<div class="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-700 opacity-60">
+<div class="flex-shrink-0 size-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">lock</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-500 dark:text-slate-400">Greetings Review &amp; Proverb</h4>
+<p class="text-sm text-slate-400 dark:text-slate-500">Put it all together with a Fulani proverb.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-4 pb-6 pt-2">
+<div class="max-w-md mx-auto flex justify-between">
+<a class="flex flex-1 flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">menu_book</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Learn</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Practice</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Community</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Profile</p>
+</a>
+</div>
+</nav>
+<!-- Abstract Background Accent -->
+<div class="fixed inset-0 pointer-events-none fulani-pattern -z-10"></div>
+</body></html>

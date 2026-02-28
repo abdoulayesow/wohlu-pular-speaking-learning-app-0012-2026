@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wohlu Design System</title>
+<!-- Google Fonts: Noto Serif for Headings, Inter for Body -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ec4913', // Terracotta
+            secondary: '#FFBF00', // Gold/Amber
+            accent: '#014421', // Deep Forest Green
+            cream: '#FCF9F2', // Warm Cream
+            sand: '#F2E8D5', // Soft Sand
+            deepBrown: '#2D1B13', // Deep Brown Text
+          },
+          fontFamily: {
+            serif: ['"Noto Serif"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            'twelve': '12px',
+          },
+        },
+      },
+    }
+  </script>
+<style data-purpose="custom-patterns">/* Subtle Fulani-inspired geometric pattern background */
+.pattern-bg {
+    background-color: #FCF9F2;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuADXk_KRqNys2VJSTWmLDT30kcT8pzWKw4bkOsKcnOxxibN0yoqtvTzG2HGqIQleuzev2bsT5Wn5mxww_2HGmR1lLtz7_8d0lKTXrV76Uz8wkfocLaXrzioZThqjM1gxwJeXR0p-QfHE0qOUP3ZEI6KHVzIlSM-8OhzW_N6x1qyWVT8mqXgHWcFwRd3uh0SnZM_3Hs64plvnm4pbaP8hmESK5RQ4yhsmlvrmuTtvZBWX8xTPAhfIYqR8-qXEXeXwyXVFUf12jUnbvk2);
+    /* Placeholder pattern: simulated textile feel */
+    }
+.fulani-border {
+    border-bottom: 4px solid #ec4913;
+    position: relative
+    }
+.fulani-border::after {
+    content: "•••";
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translatex(-50%);
+    background: #FCF9F2;
+    padding: 0 10px;
+    color: #ec4913;
+    font-weight: bold;
+    letter-spacing: 4px
+    }</style>
+</head>
+<body class="bg-cream text-deepBrown font-sans antialiased min-h-screen pb-12">
+<!-- BEGIN: Header -->
+<header class="p-6 bg-white border-b border-sand shadow-sm" data-purpose="main-header">
+<div class="flex flex-col items-center">
+<h1 class="font-serif text-3xl font-bold text-primary">Wohlu</h1>
+<p class="text-sm italic text-deepBrown opacity-80 mt-1">Speak Pular. Feel Fulani.</p>
+</div>
+</header>
+<!-- END: Header -->
+<main class="max-w-md mx-auto px-5 mt-8 space-y-12">
+<!-- BEGIN: Color Palette Section -->
+<section data-purpose="color-palette" id="colors">
+<h2 class="font-serif text-xl font-bold mb-4 border-l-4 border-primary pl-3">Color Palette</h2>
+<div class="grid grid-cols-2 gap-4">
+<!-- Primary Swatch -->
+<div class="flex flex-col">
+<div class="h-20 w-full bg-primary rounded-twelve shadow-sm"></div>
+<span class="text-xs font-semibold mt-2 uppercase">Primary (Terracotta)</span>
+<span class="text-xs text-gray-500">#ec4913</span>
+</div>
+<!-- Secondary Swatch -->
+<div class="flex flex-col">
+<div class="h-20 w-full bg-secondary rounded-twelve shadow-sm"></div>
+<span class="text-xs font-semibold mt-2 uppercase">Secondary (Gold)</span>
+<span class="text-xs text-gray-500">#FFBF00</span>
+</div>
+<!-- Accent Swatch -->
+<div class="flex flex-col">
+<div class="h-20 w-full bg-accent rounded-twelve shadow-sm"></div>
+<span class="text-xs font-semibold mt-2 uppercase">Accent (Forest)</span>
+<span class="text-xs text-gray-500">#014421</span>
+</div>
+<!-- Neutral Swatch -->
+<div class="flex flex-col">
+<div class="h-20 w-full bg-sand rounded-twelve border border-gray-200"></div>
+<span class="text-xs font-semibold mt-2 uppercase">Neutral (Sand)</span>
+<span class="text-xs text-gray-500">#F2E8D5</span>
+</div>
+</div>
+</section>
+<!-- END: Color Palette Section -->
+<!-- BEGIN: Typography Section -->
+<section data-purpose="typography-scale" id="typography">
+<h2 class="font-serif text-xl font-bold mb-4 border-l-4 border-primary pl-3">Typography Scale</h2>
+<div class="space-y-6 bg-white p-6 rounded-twelve border border-sand shadow-sm">
+<div class="space-y-1">
+<p class="text-xs text-gray-400 uppercase tracking-widest">Display / Serif</p>
+<p class="font-serif text-4xl leading-tight">Jaɓɓorgo Wohlu</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-gray-400 uppercase tracking-widest">Heading 1 / Serif</p>
+<p class="font-serif text-2xl font-bold">Pular: å, ð, ñ, ý, ø</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-gray-400 uppercase tracking-widest">Body Text / Sans</p>
+<p class="text-base leading-relaxed">En njaɓɓii on e nder galle men. This design system reflects the warmth of Fulani culture through handcrafted motifs.</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-gray-400 uppercase tracking-widest">Captions / Sans</p>
+<p class="text-sm italic">"Pular ko haala mawnude."</p>
+</div>
+</div>
+</section>
+<!-- END: Typography Section -->
+<!-- BEGIN: Buttons Section -->
+<section data-purpose="button-styles" id="buttons">
+<h2 class="font-serif text-xl font-bold mb-4 border-l-4 border-primary pl-3">Buttons</h2>
+<div class="flex flex-col gap-4">
+<!-- Primary Button -->
+<button class="bg-primary text-white font-semibold py-4 px-6 rounded-twelve shadow-md active:scale-95 transition-transform">
+          Primary Action
+        </button>
+<!-- Secondary Button -->
+<button class="bg-secondary text-deepBrown font-semibold py-4 px-6 rounded-twelve shadow-md active:scale-95 transition-transform">
+          Secondary Action
+        </button>
+<!-- Ghost Button -->
+<button class="bg-transparent text-primary font-bold border-2 border-primary py-4 px-6 rounded-twelve active:bg-primary/10 transition-colors">
+          Ghost Action
+        </button>
+</div>
+</section>
+<!-- END: Buttons Section -->
+<!-- BEGIN: Card Styles Section -->
+<section data-purpose="card-variants" id="cards">
+<h2 class="font-serif text-xl font-bold mb-4 border-l-4 border-primary pl-3">Card Styles</h2>
+<!-- Card with pattern and content -->
+<div class="pattern-bg p-6 rounded-twelve shadow-lg border border-sand relative overflow-hidden">
+<div class="absolute top-0 right-0 w-12 h-12 bg-accent/10 rounded-bl-full flex items-center justify-center">
+<!-- Placeholder for an icon -->
+<svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-serif text-lg font-bold text-primary mb-2">Lesson: Greetings</h3>
+<p class="text-sm opacity-90 mb-4 leading-relaxed">Learn how to greet elders in Pular. Respect and warmth are the pillars of Fulani communication.</p>
+<div class="fulani-border mb-4"></div>
+<p class="text-xs font-bold text-accent uppercase tracking-wide">Family-Centered Learning</p>
+</div>
+</section>
+<!-- END: Card Styles Section -->
+<!-- BEGIN: Iconography & Spacing -->
+<section data-purpose="icons-and-spacing" id="icon-spacing">
+<h2 class="font-serif text-xl font-bold mb-4 border-l-4 border-primary pl-3">Icon Style &amp; Spacing</h2>
+<div class="bg-white p-6 rounded-twelve border border-sand">
+<p class="text-xs text-gray-500 mb-4">Generous 1.25rem (p-5) padding as standard. Icons are warm and solid.</p>
+<div class="flex justify-around items-center">
+<!-- Heart Icon -->
+<div class="p-4 bg-primary/10 rounded-full">
+<svg class="h-8 w-8 text-primary fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+</svg>
+</div>
+<!-- Chat Icon -->
+<div class="p-4 bg-secondary/20 rounded-full">
+<svg class="h-8 w-8 text-secondary fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+</svg>
+</div>
+<!-- User Icon -->
+<div class="p-4 bg-accent/10 rounded-full">
+<svg class="h-8 w-8 text-accent fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Iconography & Spacing -->
+</main>
+<!-- BEGIN: Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-sand px-6 py-4 flex justify-between items-center shadow-lg" data-purpose="mobile-nav">
+<div class="flex flex-col items-center text-primary">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] mt-1 font-bold">Galle</span>
+</div>
+<div class="flex flex-col items-center text-gray-400">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] mt-1">Jangude</span>
+</div>
+<div class="flex flex-col items-center text-gray-400">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] mt-1">Haaldu</span>
+</div>
+</nav>
+<!-- END: Navigation -->
+</body></html>
