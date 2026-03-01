@@ -54,6 +54,15 @@ const router = createBrowserRouter([
               return { Component: HomePage };
             },
           },
+          {
+            path: "/modules/:moduleId",
+            lazy: async () => {
+              const { default: ModulePage } = await import(
+                "./pages/ModulePage"
+              );
+              return { Component: ModulePage };
+            },
+          },
         ],
       },
     ],
