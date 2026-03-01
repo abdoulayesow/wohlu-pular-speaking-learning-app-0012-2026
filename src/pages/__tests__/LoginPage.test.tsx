@@ -48,7 +48,7 @@ describe("LoginPage", () => {
     fireEvent.change(screen.getByLabelText("Password"), {
       target: { value: "wrongpass" },
     });
-    fireEvent.submit(screen.getByRole("button", { name: /sign in/i }));
+    fireEvent.click(screen.getByRole("button", { name: /sign in/i }));
 
     await waitFor(() => {
       expect(

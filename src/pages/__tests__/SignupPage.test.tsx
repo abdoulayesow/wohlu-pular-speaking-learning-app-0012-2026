@@ -52,7 +52,7 @@ describe("SignupPage", () => {
     fireEvent.change(screen.getByLabelText("Confirm password"), {
       target: { value: "different123" },
     });
-    fireEvent.submit(screen.getByRole("button", { name: /create account/i }));
+    fireEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     await waitFor(() => {
       expect(screen.getByText(/Passwords do not match/)).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe("SignupPage", () => {
     fireEvent.change(screen.getByLabelText("Confirm password"), {
       target: { value: "password123" },
     });
-    fireEvent.submit(screen.getByRole("button", { name: /create account/i }));
+    fireEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     await waitFor(() => {
       expect(
@@ -110,7 +110,7 @@ describe("SignupPage", () => {
     fireEvent.change(screen.getByLabelText("Confirm password"), {
       target: { value: "short1" },
     });
-    fireEvent.submit(screen.getByRole("button", { name: /create account/i }));
+    fireEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     await waitFor(() => {
       expect(
@@ -140,7 +140,7 @@ describe("SignupPage", () => {
     fireEvent.change(screen.getByLabelText("Confirm password"), {
       target: { value: "password123" },
     });
-    fireEvent.submit(screen.getByRole("button", { name: /create account/i }));
+    fireEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     await waitFor(() => {
       expect(
