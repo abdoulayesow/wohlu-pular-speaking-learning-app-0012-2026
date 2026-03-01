@@ -2,11 +2,12 @@ function FounderStory() {
   return (
     <section className="bg-accent-gold/5 px-6 py-24 dark:bg-accent-gold/10">
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-        <div className="mb-8 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-gradient-to-br from-primary/20 to-accent-gold/20 shadow-xl dark:border-slate-800">
-          <span
-            className="text-2xl font-bold text-primary"
-            aria-label="Founder avatar"
-          >
+        <div
+          className="mb-8 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-gradient-to-br from-primary/20 to-accent-gold/20 shadow-xl dark:border-slate-800"
+          role="img"
+          aria-label="Founder avatar"
+        >
+          <span className="text-2xl font-bold text-primary" aria-hidden="true">
             A
           </span>
         </div>

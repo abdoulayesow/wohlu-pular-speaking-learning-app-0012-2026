@@ -1,8 +1,10 @@
 /** Client-safe constants — safe to bundle into the browser */
 
 function requireEnv(key: string): string {
-  const value = import.meta.env[key] as string | undefined;
-  if (!value) throw new Error(`Missing required env var: ${key}`);
+  const value: unknown = import.meta.env[key];
+  if (typeof value !== "string" || value === "") {
+    throw new Error(`Missing required env var: ${key}`);
+  }
   return value;
 }
 

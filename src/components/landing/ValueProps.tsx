@@ -52,8 +52,10 @@ function ShieldIcon() {
   );
 }
 
+import type { ReactNode } from "react";
+
 interface ValueCardProps {
-  icon: React.ReactNode;
+  icon: ReactNode;
   iconBg: string;
   iconColor: string;
   title: string;

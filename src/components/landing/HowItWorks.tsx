@@ -24,7 +24,7 @@ function Step({
         role="img"
         aria-label={placeholderAlt}
       >
-        <p className="px-4 text-center text-sm font-medium text-text-secondary">
+        <p className="px-4 text-center text-sm font-medium text-text-secondary" aria-hidden="true">
           {placeholderAlt}
         </p>
       </div>
@@ -85,7 +85,7 @@ function HowItWorks() {
           label="STEP 3"
           badgeColor="bg-accent-green/10 text-accent-green"
           title="Grow together"
-          description="Track your child's progress as they unlock new cultural milestones. Watch their vocabulary expand from &quot;On jaraama&quot; to full conversations."
+          description={`Track your child\u2019s progress as they unlock new cultural milestones. Watch their vocabulary expand from \u201COn jaraama\u201D to full conversations.`}
           placeholderBg="bg-accent-green/5"
           placeholderAlt="Growth chart decorated with traditional Fulani fabric patterns"
         />

@@ -5,7 +5,8 @@ function WaitlistForm() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: Wire up Supabase waitlist insert
+    // FormData will be used when Supabase waitlist insert is wired up
+    void new FormData(e.currentTarget);
     setSubmitted(true);
   }
 
@@ -21,7 +22,7 @@ function WaitlistForm() {
 
           {submitted ? (
             <div className="rounded-2xl bg-success/10 p-8 text-center dark:bg-success/20">
-              <p className="text-lg font-semibold text-success">
+              <p className="text-lg font-semibold text-success dark:text-emerald-400">
                 Thank you for joining! We&rsquo;ll be in touch soon.
               </p>
             </div>
@@ -37,7 +38,7 @@ function WaitlistForm() {
                   type="email"
                   required
                   placeholder="you@example.com"
-                  className="w-full rounded-xl border-slate-200 px-4 py-3 focus:border-primary focus:ring-primary dark:border-slate-700 dark:bg-slate-800"
+                  className="w-full rounded-xl border-slate-200 px-4 py-3 focus-visible:border-primary focus-visible:ring-primary dark:border-slate-700 dark:bg-slate-800"
                 />
               </div>
 
@@ -50,7 +51,7 @@ function WaitlistForm() {
                   name="reason"
                   rows={3}
                   placeholder="I want my daughter to speak with her grandmother..."
-                  className="w-full rounded-xl border-slate-200 px-4 py-3 focus:border-primary focus:ring-primary dark:border-slate-700 dark:bg-slate-800"
+                  className="w-full rounded-xl border-slate-200 px-4 py-3 focus-visible:border-primary focus-visible:ring-primary dark:border-slate-700 dark:bg-slate-800"
                 />
               </div>
 
@@ -58,12 +59,12 @@ function WaitlistForm() {
                 <label htmlFor="waitlist-source" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300">
                   How did you hear about us?
                 </label>
-                <select id="waitlist-source" name="source" className="w-full rounded-xl border-slate-200 px-4 py-3 focus:border-primary focus:ring-primary dark:border-slate-700 dark:bg-slate-800">
-                  <option>WhatsApp</option>
-                  <option>Friend/Family</option>
-                  <option>Mosque</option>
-                  <option>Social Media</option>
-                  <option>Other</option>
+                <select id="waitlist-source" name="source" className="w-full rounded-xl border-slate-200 px-4 py-3 focus-visible:border-primary focus-visible:ring-primary dark:border-slate-700 dark:bg-slate-800">
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="friend_family">Friend/Family</option>
+                  <option value="mosque">Mosque</option>
+                  <option value="social_media">Social Media</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
 

@@ -4,16 +4,16 @@ function HeroSection() {
   return (
     <section className="bg-pattern relative flex min-h-[90vh] flex-col items-center justify-center px-6 pt-12 pb-20">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-primary">
+        <p className="text-4xl font-bold tracking-tight text-primary">
           {APP_NAME}
-        </h1>
+        </p>
       </div>
 
       <div className="mx-auto max-w-md text-center">
-        <h2 className="mb-6 font-serif text-5xl leading-tight md:text-6xl">
+        <h1 className="mb-6 font-serif text-5xl leading-tight md:text-6xl">
           Teach your children the Pular your{" "}
           <span className="italic text-primary">parents taught you.</span>
-        </h2>
+        </h1>
         <p className="mb-10 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
           Preserve your heritage with an app designed for the Fuuta Jallon
           dialect. Authentic, meaningful, and built for the next generation.
