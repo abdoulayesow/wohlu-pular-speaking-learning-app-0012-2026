@@ -39,7 +39,7 @@ function CoLearningGuide({ onNext }: CoLearningGuideProps) {
             key={tip.title}
             className={`flex items-start gap-4 rounded-2xl p-4 ${tip.bg}`}
           >
-            <span className="text-3xl leading-none" role="img" aria-hidden="true">
+            <span className="text-3xl leading-none" aria-hidden="true">
               {tip.emoji}
             </span>
             <div>

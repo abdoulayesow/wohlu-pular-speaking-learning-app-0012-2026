@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import AuthInput from "../components/auth/AuthInput";
 import AuthButton from "../components/auth/AuthButton";
+import ErrorAlert from "../components/auth/ErrorAlert";
 import PrivacyCommitment from "../components/auth/PrivacyCommitment";
 
 type Step = "form" | "privacy";
@@ -19,9 +20,10 @@ function SignupPage() {
     setError("");
 
     const form = new FormData(e.currentTarget);
-    const email = form.get("email") as string;
-    const password = form.get("password") as string;
-    const confirm = form.get("confirm") as string;
+    const email = form.get("email");
+    const password = form.get("password");
+    const confirm = form.get("confirm");
+    if (typeof email !== "string" || typeof password !== "string" || typeof confirm !== "string") return;
 
     if (password.length < 8) {
       setError("Password must be at least 8 characters.");
@@ -60,19 +62,12 @@ function SignupPage() {
             <PrivacyCommitment onAccept={handleAccept} />
           ) : (
             <>
-              <h1 className="mb-1 font-serif text-3xl">Create your account</h1>
+              <h1 className="mb-1 font-serif text-3xl text-slate-900 dark:text-slate-100">Create your account</h1>
               <p className="mb-8 text-slate-500 dark:text-slate-400">
                 Start your family&rsquo;s Pular learning journey today.
               </p>
 
-              {error && (
-                <div
-                  role="alert"
-                  className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400"
-                >
-                  {error}
-                </div>
-              )}
+              {error && <ErrorAlert message={error} />}
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <AuthInput

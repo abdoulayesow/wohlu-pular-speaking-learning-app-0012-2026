@@ -88,4 +88,64 @@ describe("SignupPage", () => {
       ).toBeInTheDocument();
     });
   });
+
+  it("shows error when password is too short", async () => {
+    vi.spyOn(useAuthModule, "useAuth").mockReturnValue({
+      user: null,
+      session: null,
+      loading: false,
+      signIn: vi.fn().mockResolvedValue({ error: null }),
+      signUp: vi.fn().mockResolvedValue({ error: null }),
+      signOut: vi.fn().mockResolvedValue(undefined),
+    });
+
+    renderSignup();
+
+    fireEvent.change(screen.getByLabelText("Email address"), {
+      target: { value: "user@example.com" },
+    });
+    fireEvent.change(screen.getByLabelText("Password"), {
+      target: { value: "short1" },
+    });
+    fireEvent.change(screen.getByLabelText("Confirm password"), {
+      target: { value: "short1" },
+    });
+    fireEvent.submit(screen.getByRole("button", { name: /create account/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/at least 8 characters/i),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("shows continue button in privacy commitment step", async () => {
+    vi.spyOn(useAuthModule, "useAuth").mockReturnValue({
+      user: null,
+      session: null,
+      loading: false,
+      signIn: vi.fn().mockResolvedValue({ error: null }),
+      signUp: vi.fn().mockResolvedValue({ error: null }),
+      signOut: vi.fn().mockResolvedValue(undefined),
+    });
+
+    renderSignup();
+
+    fireEvent.change(screen.getByLabelText("Email address"), {
+      target: { value: "user@example.com" },
+    });
+    fireEvent.change(screen.getByLabelText("Password"), {
+      target: { value: "password123" },
+    });
+    fireEvent.change(screen.getByLabelText("Confirm password"), {
+      target: { value: "password123" },
+    });
+    fireEvent.submit(screen.getByRole("button", { name: /create account/i }));
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole("button", { name: /I understand/i }),
+      ).toBeInTheDocument();
+    });
+  });
 });

@@ -35,17 +35,17 @@ function OnboardingPage() {
         <button
           type="button"
           onClick={handleSkip}
-          className="rounded text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          className="rounded px-3 py-2 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           Skip
         </button>
       </div>
 
-      <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center">
+      <main className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center">
         {step === 0 && <WelcomeScreen onNext={() => setStep(1)} />}
         {step === 1 && <CoLearningGuide onNext={() => setStep(2)} />}
         {step === 2 && <FirstGreeting onComplete={finishOnboarding} />}
-      </div>
+      </main>
     </div>
   );
 }

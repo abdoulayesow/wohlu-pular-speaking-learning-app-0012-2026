@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import AuthInput from "../components/auth/AuthInput";
 import AuthButton from "../components/auth/AuthButton";
+import ErrorAlert from "../components/auth/ErrorAlert";
 
 function LoginPage() {
   const { signIn } = useAuth();
@@ -16,8 +17,9 @@ function LoginPage() {
     setLoading(true);
 
     const form = new FormData(e.currentTarget);
-    const email = form.get("email") as string;
-    const password = form.get("password") as string;
+    const email = form.get("email");
+    const password = form.get("password");
+    if (typeof email !== "string" || typeof password !== "string") return;
 
     const { error: signInError } = await signIn(email, password);
     setLoading(false);
@@ -38,19 +40,12 @@ function LoginPage() {
         </div>
 
         <div className="rounded-3xl border border-primary/10 bg-white px-8 py-10 shadow-2xl dark:border-primary/20 dark:bg-slate-900">
-          <h1 className="mb-1 font-serif text-3xl">Welcome back</h1>
+          <h1 className="mb-1 font-serif text-3xl text-slate-900 dark:text-slate-100">Welcome back</h1>
           <p className="mb-8 text-slate-500 dark:text-slate-400">
             Sign in to continue your family&rsquo;s journey.
           </p>
 
-          {error && (
-            <div
-              role="alert"
-              className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400"
-            >
-              {error}
-            </div>
-          )}
+          {error && <ErrorAlert message={error} />}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <AuthInput
@@ -71,15 +66,6 @@ function LoginPage() {
               required
               placeholder="Your password"
             />
-
-            <div className="flex justify-end">
-              <a
-                href="#"
-                className="rounded text-sm text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              >
-                Forgot password?
-              </a>
-            </div>
 
             <AuthButton loading={loading}>Sign in</AuthButton>
           </form>

@@ -1,3 +1,5 @@
+import AuthButton from "./AuthButton";
+
 const GUARANTEES = [
   {
     title: "No camera access — ever",
@@ -46,7 +48,7 @@ function PrivacyCommitment({ onAccept }: PrivacyCommitmentProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="mb-2 font-serif text-3xl">Our promise to your family</h2>
+        <h1 className="mb-2 font-serif text-3xl">Our promise to your family</h1>
         <p className="text-slate-600 dark:text-slate-400">
           Before you begin, we want to be fully transparent.
         </p>
@@ -68,13 +70,9 @@ function PrivacyCommitment({ onAccept }: PrivacyCommitmentProps) {
         ))}
       </ul>
 
-      <button
-        type="button"
-        onClick={onAccept}
-        className="flex min-h-[48px] w-full items-center justify-center rounded-xl bg-primary font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-      >
+      <AuthButton type="button" onClick={onAccept}>
         I understand &mdash; Continue
-      </button>
+      </AuthButton>
     </div>
   );
 }
