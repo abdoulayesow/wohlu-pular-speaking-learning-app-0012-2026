@@ -1,0 +1,115 @@
+{
+  "id": "greetings-and-respect",
+  "title": "Greetings & Respect",
+  "description": "Learn the greetings that connect you to your family and show respect to elders.",
+  "lessons": [
+    {
+      "module_id": "greetings-and-respect",
+      "lesson_id": "basic-greetings",
+      "title": "Basic Greetings",
+      "situation_description": "You arrive at your grandparents' compound in Fuuta Jallon. The whole family is gathered in the courtyard. How do you greet everyone properly?",
+      "illustration": "/images/lessons/basic-greetings.webp",
+      "phrases": [
+        {
+          "id": "gr-001",
+          "pular": "A jaraama",
+          "english": "Thank you / Peace be upon you",
+          "audio": "/audio/greetings/a-jaraama.mp3",
+          "cultural_note": "\"A jaraama\" is more than \"thank you\" \u2014 it expresses gratitude for someone's presence and acknowledges their dignity.",
+          "category": "greetings"
+        },
+        {
+          "id": "gr-002",
+          "pular": "Jam waali",
+          "english": "All is well / Peace prevails",
+          "audio": "/audio/greetings/jam-waali.mp3",
+          "cultural_note": "This greeting affirms that peace exists between you. It's both a greeting and a blessing.",
+          "category": "greetings"
+        },
+        {
+          "id": "gr-003",
+          "pular": "Tana alaa?",
+          "english": "Is there no trouble?",
+          "audio": "/audio/greetings/tana-alaa.mp3",
+          "cultural_note": "A caring inquiry about someone's wellbeing. The expected response is \"Jam tan\" (Only peace).",
+          "category": "greetings"
+        },
+        {
+          "id": "gr-004",
+          "pular": "Jam tan",
+          "english": "Only peace / Everything is fine",
+          "audio": "/audio/greetings/jam-tan.mp3",
+          "cultural_note": "The standard reassuring reply. Even when things are hard, this response honors the bond between speakers.",
+          "category": "greetings"
+        }
+      ],
+      "exercises": [
+        {
+          "type": "match_phrase_to_meaning",
+          "phrase_ids": ["gr-001", "gr-002", "gr-003", "gr-004"],
+          "instruction": "Match each Pular phrase to its English meaning"
+        }
+      ],
+      "tindol": {
+        "pular": "Endu wooturu halataa.",
+        "english": "A single heart does not speak \u2014 meaning: we need each other to communicate and live well.",
+        "audio": "/audio/greetings/tindol-endu-wooturu.mp3"
+      },
+      "next_lesson": "greeting-elders"
+    },
+    {
+      "module_id": "greetings-and-respect",
+      "lesson_id": "greeting-elders",
+      "title": "Greeting Elders with Respect",
+      "situation_description": "Your grandmother comes to visit and you want to show her the deepest respect in Pular tradition. How do you greet an elder properly?",
+      "illustration": "/images/lessons/greeting-elders.webp",
+      "phrases": [
+        {
+          "id": "gr-005",
+          "pular": "On jaraama",
+          "english": "Greetings to you (respectful/plural)",
+          "audio": "/audio/greetings/on-jaraama.mp3",
+          "cultural_note": "\"On\" is the respectful form of \"you.\" Always use this with elders, teachers, and anyone deserving special respect.",
+          "category": "greetings"
+        },
+        {
+          "id": "gr-006",
+          "pular": "Jam weeti?",
+          "english": "Did you spend the night in peace?",
+          "audio": "/audio/greetings/jam-weeti.mp3",
+          "cultural_note": "A morning greeting asking about the night. Showing concern for an elder's rest is a sign of deep respect.",
+          "category": "greetings"
+        },
+        {
+          "id": "gr-007",
+          "pular": "Jam hiiri?",
+          "english": "Did you spend the day in peace?",
+          "audio": "/audio/greetings/jam-hiiri.mp3",
+          "cultural_note": "An evening greeting. Pular greetings change with the time of day, showing attentiveness to others' daily experience.",
+          "category": "greetings"
+        },
+        {
+          "id": "gr-008",
+          "pular": "Seydi am, a jaraama!",
+          "english": "My elder, greetings to you!",
+          "audio": "/audio/greetings/seydi-am.mp3",
+          "cultural_note": "\"Seydi\" means elder or respected person. Addressing someone as \"seydi am\" (my elder) shows the highest form of respect.",
+          "category": "greetings"
+        }
+      ],
+      "exercises": [
+        {
+          "type": "match_phrase_to_meaning",
+          "phrase_ids": ["gr-005", "gr-006", "gr-007", "gr-008"],
+          "instruction": "Match each respectful greeting to its meaning"
+        }
+      ],
+      "tindol": {
+        "pular": "Neene mawnde, suudu mawndu.",
+        "english": "A great mother makes a great household \u2014 meaning: respect for elders is the foundation of family life.",
+        "audio": "/audio/greetings/tindol-neene-mawnde.mp3"
+      },
+      "next_lesson": null
+    }
+  ]
+}
