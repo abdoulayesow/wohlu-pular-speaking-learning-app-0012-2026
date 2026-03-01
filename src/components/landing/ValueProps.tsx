@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 function VolumeUpIcon() {
   return (
     <svg
@@ -51,8 +53,6 @@ function ShieldIcon() {
     </svg>
   );
 }
-
-import type { ReactNode } from "react";
 
 interface ValueCardProps {
   icon: ReactNode;

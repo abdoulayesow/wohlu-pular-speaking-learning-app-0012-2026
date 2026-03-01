@@ -1,14 +1,41 @@
 import { type FormEvent, useState } from "react";
+import { supabase } from "../../lib/supabase";
+
+type Status = "idle" | "submitting" | "success" | "error";
 
 function WaitlistForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // FormData will be used when Supabase waitlist insert is wired up
-    void new FormData(e.currentTarget);
-    setSubmitted(true);
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email") as string;
+    const reason = (form.get("reason") as string) || null;
+    const source = (form.get("source") as string) || null;
+
+    const { error } = await supabase
+      .from("waitlist")
+      .insert({ email, reason, source });
+
+    if (error) {
+      // PostgreSQL unique_violation — duplicate email; treat as success
+      if (error.code === "23505") {
+        setStatus("success");
+        return;
+      }
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please try again.");
+      return;
+    }
+
+    setStatus("success");
   }
+
+  const isSubmitting = status === "submitting";
 
   return (
     <section className="px-6 py-24" id="waitlist">
@@ -20,7 +47,7 @@ function WaitlistForm() {
             learning for the diaspora.
           </p>
 
-          {submitted ? (
+          {status === "success" ? (
             <div className="rounded-2xl bg-success/10 p-8 text-center dark:bg-success/20">
               <p className="text-lg font-semibold text-success dark:text-emerald-400">
                 Thank you for joining! We&rsquo;ll be in touch soon.
@@ -28,8 +55,20 @@ function WaitlistForm() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 text-left">
+              {status === "error" && (
+                <div
+                  role="alert"
+                  className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400"
+                >
+                  {errorMessage}
+                </div>
+              )}
+
               <div>
-                <label htmlFor="waitlist-email" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                <label
+                  htmlFor="waitlist-email"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
+                >
                   Email Address
                 </label>
                 <input
@@ -43,7 +82,10 @@ function WaitlistForm() {
               </div>
 
               <div>
-                <label htmlFor="waitlist-reason" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                <label
+                  htmlFor="waitlist-reason"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
+                >
                   Why do you want to learn Pular?
                 </label>
                 <textarea
@@ -56,10 +98,17 @@ function WaitlistForm() {
               </div>
 
               <div>
-                <label htmlFor="waitlist-source" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                <label
+                  htmlFor="waitlist-source"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
+                >
                   How did you hear about us?
                 </label>
-                <select id="waitlist-source" name="source" className="w-full rounded-xl border-slate-200 px-4 py-3 focus-visible:border-primary focus-visible:ring-primary dark:border-slate-700 dark:bg-slate-800">
+                <select
+                  id="waitlist-source"
+                  name="source"
+                  className="w-full rounded-xl border-slate-200 px-4 py-3 focus-visible:border-primary focus-visible:ring-primary dark:border-slate-700 dark:bg-slate-800"
+                >
                   <option value="whatsapp">WhatsApp</option>
                   <option value="friend_family">Friend/Family</option>
                   <option value="mosque">Mosque</option>
@@ -70,9 +119,10 @@ function WaitlistForm() {
 
               <button
                 type="submit"
-                className="w-full rounded-xl bg-primary py-4 font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                disabled={isSubmitting}
+                className="w-full rounded-xl bg-primary py-4 font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Join the Waitlist &mdash; Be First
+                {isSubmitting ? "Joining\u2026" : "Join the Waitlist \u2014 Be First"}
               </button>
 
               <p className="mt-4 text-center text-xs text-slate-500">
