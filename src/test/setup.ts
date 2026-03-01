@@ -8,7 +8,10 @@ vi.mock("@supabase/supabase-js", () => ({
     from: () => ({
       insert: () => Promise.resolve({ data: null, error: null }),
       select: () => Promise.resolve({ data: [], error: null }),
-      update: () => Promise.resolve({ data: null, error: null }),
+      update: () => ({
+        eq: () => Promise.resolve({ data: null, error: null }),
+        match: () => Promise.resolve({ data: null, error: null }),
+      }),
       upsert: () => Promise.resolve({ data: null, error: null }),
     }),
     auth: {
