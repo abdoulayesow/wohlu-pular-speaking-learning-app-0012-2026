@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router";
 import { useAuth } from "../hooks/useAuth";
+import { ProgressProvider } from "../hooks/useProgress";
 import LoadingScreen from "./LoadingScreen";
 
 function ProtectedRoute() {
@@ -8,7 +9,11 @@ function ProtectedRoute() {
   if (loading) return <LoadingScreen />;
   if (!user) return <Navigate to="/login" replace />;
 
-  return <Outlet />;
+  return (
+    <ProgressProvider>
+      <Outlet />
+    </ProgressProvider>
+  );
 }
 
 export default ProtectedRoute;
