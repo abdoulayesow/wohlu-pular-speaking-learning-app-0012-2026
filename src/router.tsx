@@ -64,6 +64,32 @@ const router = createBrowserRouter([
             },
           },
           {
+            path: "/progress",
+            lazy: async () => {
+              const ComingSoon = () => (
+                <div className="flex min-h-screen flex-col items-center justify-center bg-bg-light px-4 dark:bg-bg-dark">
+                  <p className="text-lg font-semibold text-slate-600 dark:text-slate-400">
+                    Progress tracking coming soon!
+                  </p>
+                </div>
+              );
+              return { Component: ComingSoon };
+            },
+          },
+          {
+            path: "/settings",
+            lazy: async () => {
+              const ComingSoon = () => (
+                <div className="flex min-h-screen flex-col items-center justify-center bg-bg-light px-4 dark:bg-bg-dark">
+                  <p className="text-lg font-semibold text-slate-600 dark:text-slate-400">
+                    Settings coming soon!
+                  </p>
+                </div>
+              );
+              return { Component: ComingSoon };
+            },
+          },
+          {
             path: "/modules/:moduleId/lessons/:lessonId",
             lazy: async () => {
               const { default: LessonPage } = await import(

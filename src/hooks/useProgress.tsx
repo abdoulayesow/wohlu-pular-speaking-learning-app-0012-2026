@@ -115,27 +115,28 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   const updatePhraseReview = useCallback(
     async (phraseId: string, quality: number) => {
+      let result: PhraseProgress | undefined;
+
       setPhrases((prev) => {
         const existing = prev.find((p) => p.phrase_id === phraseId);
         const updated = computeSM2(existing, phraseId, quality);
+        result = updated;
         const filtered = prev.filter((p) => p.phrase_id !== phraseId);
         return [...filtered, updated];
       });
 
-      if (user) {
-        const existing = phrases.find((p) => p.phrase_id === phraseId);
-        const updated = computeSM2(existing, phraseId, quality);
+      if (user && result) {
         await supabase.from("phrase_progress").upsert({
           user_id: user.id,
-          phrase_id: updated.phrase_id,
-          easiness_factor: updated.ease_factor,
-          interval_days: updated.interval,
-          next_review: updated.next_review,
-          repetitions: updated.repetitions,
+          phrase_id: result.phrase_id,
+          easiness_factor: result.ease_factor,
+          interval_days: result.interval,
+          next_review: result.next_review,
+          repetitions: result.repetitions,
         });
       }
     },
-    [user, phrases],
+    [user],
   );
 
   const phrasesReadyForReview = useCallback((): PhraseProgress[] => {

@@ -17,7 +17,7 @@ function PhraseList({ phrases, onNext }: PhraseListProps) {
     if (!el) return;
 
     function handleScroll() {
-      if (!el) return;
+      if (!el || el.clientWidth === 0) return;
       const index = Math.round(el.scrollLeft / el.clientWidth);
       setViewedCount((prev) => Math.max(prev, index + 1));
     }
@@ -36,7 +36,19 @@ function PhraseList({ phrases, onNext }: PhraseListProps) {
       {/* Scroll-snap carousel */}
       <div
         ref={scrollRef}
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 scrollbar-none"
+        role="region"
+        aria-label="Phrase cards"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          const el = scrollRef.current;
+          if (!el) return;
+          if (e.key === "ArrowRight") {
+            el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
+          } else if (e.key === "ArrowLeft") {
+            el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
+          }
+        }}
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto rounded-2xl pb-4 scrollbar-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         style={{ scrollbarWidth: "none" }}
       >
         {phrases.map((phrase) => (

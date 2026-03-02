@@ -30,7 +30,7 @@ function AudioPlayButton({ src }: AudioPlayButtonProps) {
       className={`flex h-14 w-14 items-center justify-center rounded-full transition-all active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
         playing
           ? "animate-pulse bg-primary text-white shadow-lg shadow-primary/30"
-          : "bg-primary/10 text-primary hover:bg-primary/20"
+          : "bg-primary/10 text-primary hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30"
       }`}
     >
       {playing ? (

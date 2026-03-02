@@ -32,7 +32,7 @@ function HomePage() {
               </div>
             )}
             <Link
-              to="/home"
+              to="/settings"
               className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-primary/20"
               aria-label="Profile"
             >
@@ -82,7 +82,7 @@ function HomePage() {
             const completedCount = mod.lessons.filter((l) =>
               isLessonComplete(l.lesson_id),
             ).length;
-            const locked = i > 0 && !isFirstModuleComplete(modules, i, isLessonComplete);
+            const locked = i > 0 && !isPreviousModuleComplete(modules, i, isLessonComplete);
 
             return (
               <ModuleListCard
@@ -120,7 +120,7 @@ function findNextLesson(
   return null;
 }
 
-function isFirstModuleComplete(
+function isPreviousModuleComplete(
   modules: ReturnType<typeof getAllModules>,
   currentIndex: number,
   isComplete: (id: string) => boolean,

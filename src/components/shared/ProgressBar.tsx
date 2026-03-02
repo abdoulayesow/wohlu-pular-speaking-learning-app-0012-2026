@@ -1,6 +1,7 @@
 interface ProgressBarProps {
   value: number;
   color?: "primary" | "success" | "white";
+  label?: string;
 }
 
 const trackColors = {
@@ -15,7 +16,7 @@ const fillColors = {
   white: "bg-white",
 };
 
-function ProgressBar({ value, color = "primary" }: ProgressBarProps) {
+function ProgressBar({ value, color = "primary", label }: ProgressBarProps) {
   const clamped = Math.max(0, Math.min(100, value));
 
   return (
@@ -23,6 +24,7 @@ function ProgressBar({ value, color = "primary" }: ProgressBarProps) {
       className={`h-2 w-full overflow-hidden rounded-full ${trackColors[color]}`}
       role="progressbar"
       aria-valuenow={clamped}
+      aria-label={label}
       aria-valuemin={0}
       aria-valuemax={100}
     >

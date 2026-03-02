@@ -33,7 +33,7 @@ function ContinueLearningCard({
             <span>Lesson Progress</span>
             <span>{progress}%</span>
           </div>
-          <ProgressBar value={progress} color="white" />
+          <ProgressBar value={progress} color="white" label="Lesson progress" />
         </div>
 
         <Link

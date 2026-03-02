@@ -85,7 +85,7 @@ function ModuleListCard({ module, completedCount, locked }: ModuleListCardProps)
         )}
       </div>
 
-      <ProgressBar value={progress} color={locked ? "primary" : "primary"} />
+      <ProgressBar value={progress} color="primary" label={`${module.title} progress`} />
     </div>
   );
 

@@ -6,7 +6,7 @@ function shuffleOptions(phrases: Phrase[], phrase: Phrase): string[] {
   const others = phrases
     .filter((p) => p.id !== phrase.id)
     .map((p) => p.english);
-  const distractors = others.sort(() => Math.random() - 0.5).slice(0, 3);
+  const distractors = others.sort(() => Math.random() - 0.5).slice(0, Math.min(3, others.length));
   const all = [...distractors, phrase.english];
   return all.sort(() => Math.random() - 0.5);
 }
@@ -20,7 +20,11 @@ function MatchExercise({ phrases, onNext }: MatchExerciseProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [correct, setCorrect] = useState(false);
-  const [options, setOptions] = useState(() => shuffleOptions(phrases, phrases[0]));
+  const [options, setOptions] = useState(() =>
+    phrases.length > 0 ? shuffleOptions(phrases, phrases[0]) : [],
+  );
+
+  if (phrases.length === 0) return null;
 
   const phrase = phrases[currentIndex];
   const isLast = currentIndex >= phrases.length - 1;
@@ -59,14 +63,14 @@ function MatchExercise({ phrases, onNext }: MatchExerciseProps) {
 
       {/* Options grid */}
       <div className="mb-6 w-full space-y-3">
-        {options.map((option) => {
+        {options.map((option, i) => {
           let style = "border-slate-200 bg-white hover:border-primary/40 dark:border-slate-700 dark:bg-slate-800";
 
           if (selected) {
             if (option === phrase.english) {
               style = "border-success bg-success/10 dark:border-success dark:bg-success/20";
             } else if (option === selected) {
-              style = "border-red-400 bg-red-50 dark:border-red-500 dark:bg-red-900/20";
+              style = "border-slate-300 bg-slate-100/80 opacity-60 dark:border-slate-600 dark:bg-slate-700/60";
             } else {
               style = "border-slate-200 bg-white opacity-50 dark:border-slate-700 dark:bg-slate-800";
             }
@@ -74,7 +78,7 @@ function MatchExercise({ phrases, onNext }: MatchExerciseProps) {
 
           return (
             <button
-              key={option}
+              key={`${i}-${option}`}
               type="button"
               onClick={() => handleSelect(option)}
               disabled={!!selected}

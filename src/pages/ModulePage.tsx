@@ -4,7 +4,7 @@ import { useProgress } from "../hooks/useProgress";
 import BottomNav from "../components/shared/BottomNav";
 import ProgressBar from "../components/shared/ProgressBar";
 import LessonListItem from "../components/module/LessonListItem";
-import type { LessonStep } from "../hooks/useLessonState";
+
 
 function ModulePage() {
   const { moduleId } = useParams<{ moduleId: string }>();
@@ -26,7 +26,7 @@ function ModulePage() {
   const progress = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
 
   // Determine lesson statuses
-  function getLessonStatus(index: number): LessonStep | "completed" | "active" | "locked" {
+  function getLessonStatus(index: number): "completed" | "active" | "locked" {
     const lesson = mod!.lessons[index];
     if (isLessonComplete(lesson.lesson_id)) return "completed";
     // First incomplete lesson is active
@@ -81,7 +81,7 @@ function ModulePage() {
                 {completedCount} of {totalLessons} lessons complete
               </span>
             </div>
-            <ProgressBar value={progress} />
+            <ProgressBar value={progress} label="Module progress" />
           </div>
         </section>
 
@@ -94,7 +94,7 @@ function ModulePage() {
             <LessonListItem
               key={lesson.lesson_id}
               lesson={lesson}
-              status={getLessonStatus(i) as "completed" | "active" | "locked"}
+              status={getLessonStatus(i)}
             />
           ))}
         </section>

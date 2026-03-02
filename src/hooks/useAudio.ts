@@ -15,18 +15,21 @@ export function useAudio(src: string): UseAudioReturn {
   useEffect(() => {
     const audio = new Audio(src);
 
-    audio.addEventListener("ended", () => setPlaying(false));
-    audio.addEventListener("error", () => {
+    const onEnded = () => setPlaying(false);
+    const onError = () => {
       setError(true);
       setPlaying(false);
-    });
+    };
+
+    audio.addEventListener("ended", onEnded);
+    audio.addEventListener("error", onError);
 
     audioRef.current = audio;
 
     return () => {
       audio.pause();
-      audio.removeEventListener("ended", () => setPlaying(false));
-      audio.removeEventListener("error", () => setError(true));
+      audio.removeEventListener("ended", onEnded);
+      audio.removeEventListener("error", onError);
       audioRef.current = null;
     };
   }, [src]);
