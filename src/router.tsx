@@ -63,6 +63,15 @@ const router = createBrowserRouter([
               return { Component: ModulePage };
             },
           },
+          {
+            path: "/modules/:moduleId/lessons/:lessonId",
+            lazy: async () => {
+              const { default: LessonPage } = await import(
+                "./pages/LessonPage"
+              );
+              return { Component: LessonPage };
+            },
+          },
         ],
       },
     ],
